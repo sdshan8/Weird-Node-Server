@@ -57,3 +57,16 @@ export const env_config = (input_config)=>{
   }
   return config;
 }
+
+export const load_config = ()=> {
+  let config = default_config;
+  config = file_config(config);
+  config = env_config(config);
+  if(config.domain_mode == "full") {
+    config.domain = "";
+    config.dot_domain = "";
+  } else {
+    config.dot_domain = "." + config.domain;
+  }
+  return config;
+}
