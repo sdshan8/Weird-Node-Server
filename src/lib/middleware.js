@@ -40,7 +40,7 @@ export const fileServer = (req, res, next) => {
   })
 }
 
-export const badGateway = (req, res, next) => {
+export const unHandled = (req, res, next) => {
   accessLog.error(req, 502)
   return res.sendStatus(502)
 }
